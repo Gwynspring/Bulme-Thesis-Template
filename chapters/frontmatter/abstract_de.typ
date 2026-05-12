@@ -1,14 +1,27 @@
-// Deutsche Kurzfassung — ca. 200 Wörter
-// Struktur: Aufgabenstellung | Realisierung | Ergebnisse
+#import "../../utils/todo.typ": TODO
+
+// Gliederung: Aufgabenstellung | Realisierung | Ergebnisse
+// Keine Ich-/Wir-Sätze; wissenschaftliche Ausdrucksweise.
 
 #heading(level: 2, outlined: false)[Aufgabenstellung]
 
-// Beschreibe das Problem und das Ziel deines Projekts.
+#TODO[
+  - Warum ist das Thema relevant?
+  - Was ist die Zielsetzung des Projekts?
+  - Welche Ergebnisse sollen erreicht werden?
+]
 
 #heading(level: 2, outlined: false)[Realisierung]
 
-// Beschreibe die verwendeten Methoden, Technologien und Ansätze.
+#TODO[
+  - Von welchem Stand der Technik wurde ausgegangen?
+  - Welcher Lösungsansatz wurde gewählt und warum?
+  - Welche Methoden, Technologien und theoretischen Grundlagen wurden eingesetzt?
+]
 
 #heading(level: 2, outlined: false)[Ergebnisse]
 
-// Fasse zusammen, was erreicht wurde. Was funktioniert, was steht noch aus?
+#TODO[
+  - Was wurde konkret erreicht (Prototyp, Softwareprodukt, Entwurfsplanung, …)?
+  - Was funktioniert, was ist noch offen?
+]

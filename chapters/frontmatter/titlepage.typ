@@ -20,8 +20,6 @@
 #align(center)[
   #text(size: 24pt, weight: "bold")[DIPLOMARBEIT]
 
-  #v(1cm)
-
   #text(size: 16pt, weight: "bold")[#meta.title]
 ]
 

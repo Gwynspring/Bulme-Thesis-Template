@@ -1,3 +1,7 @@
-// Thank the people who supported you during this project.
-// Typical recipients: supervisor, family, friends, colleagues.
-// Length: roughly half a page.
+#import "../../utils/todo.typ": TODO
+
+#TODO[
+  - Wer hat dich während des Projekts unterstützt?
+  - Typische Personen: Betreuer, Familie, Freunde, Kollegen.
+  - Umfang: ca. eine halbe Seite.
+]
