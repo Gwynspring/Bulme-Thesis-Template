@@ -7,7 +7,7 @@
   image("../../img/bulme.png", height: 3.0cm),
 
   align(center)[
-    #text()[Höhere Technische \ Bundes-Lehranstalt \ Graz-Gösting (BULME)]
+    #text()[#meta.school]
     #linebreak()
     #text()[#meta.department]
   ],

@@ -1,9 +1,8 @@
 #import "../../colors.typ": lightblue, lighterblue, mainblue
 #import "../../utils/code.typ": code, code_cpp, code_py
-#import "../../utils/analysis.typ": analyse_function_table, analyse_attribute_table
+#import "../../utils/analysis.typ": analyse_attribute_table, analyse_function_table
 
-// Give this chapter a label so other chapters can reference it.
-= Chapter Title <chap:chapter1>
+= Chapter Title
 
 // Write your introduction paragraph here.
 // Explain what this chapter covers and why it matters.
@@ -20,11 +19,13 @@
 === Code Example
 
 // Use code_cpp() for C++, code_py() for Python, code() for other languages.
-#code_cpp(caption: [Example: reading a sensor value],
-"int readSensor(int pin) {
+#code_cpp(
+  caption: [Example: reading a sensor value],
+  "int readSensor(int pin) {
     int value = analogRead(pin);
     return map(value, 0, 1023, 0, 100);
-}")
+}",
+)
 
 === Figure Example
 

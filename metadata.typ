@@ -1,5 +1,5 @@
 #let meta = (
-  school: "Höhere Technische Bundes–Lehranstalt Graz–Gösting (BULME)",
+  school: "Höhere Technische Bundes–Lehranstalt \nGraz–Gösting (BULME)",
   department: "Abteilung für Elektrotechnik",
   title: "Your Thesis Title Here",
   year: "2025/2026",
@@ -17,13 +17,13 @@
       photo: "placeholder.png",
       mail: "firstname.lastname@bulme.at",
     ),
-    // Add a second candidate by uncommenting:
-    // (
-    //   name: "First Last",
-    //   class: "8XYYY",
-    //   task: "Role / Contribution",
-    //   photo: "placeholder.png",
-    //   mail: "firstname.lastname@bulme.at",
-    // ),
+    // Remove second candidate by commenting out this section:
+    (
+      name: "First Last",
+      class: "8XYYY",
+      task: "Role / Contribution",
+      photo: "placeholder.png",
+      mail: "firstname.lastname@bulme.at",
+    ),
   ),
 )

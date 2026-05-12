@@ -1,35 +1,35 @@
 #import "../colors.typ": lightblue, lighterblue, mainblue
 
-#let arbeitspaket(
-  nummer,
-  titel,
+#let work_package(
+  number,
+  title,
   owner,
-  inhalte,
-  verantwortung,
-  termine,
-  ressourcen,
-  stunden,
-  ergebnis,
+  contents,
+  responsibilities,
+  deadlines,
+  resources,
+  hours,
+  results,
 ) = {
-  let rows_top = calc.max(inhalte.len(), verantwortung.len(), termine.len())
-  let rows_bottom = calc.max(ressourcen.len(), stunden.len())
+  let rows_top = calc.max(contents.len(), responsibilities.len(), deadlines.len())
+  let rows_bottom = calc.max(resources.len(), hours.len())
 
   let top_rows = (
     for i in range(rows_top) {
       (
         table.cell(fill: lightblue, colspan: 2, align: left)[
-          #if i < inhalte.len() {
-            [- #inhalte.at(i)]
+          #if i < contents.len() {
+            [- #contents.at(i)]
           }
         ],
         table.cell(fill: lightblue, align: left)[
-          #if i < verantwortung.len() {
-            [#verantwortung.at(i)]
+          #if i < responsibilities.len() {
+            [#responsibilities.at(i)]
           }
         ],
         table.cell(fill: lightblue, align: left)[
-          #if i < termine.len() {
-            [#termine.at(i)]
+          #if i < deadlines.len() {
+            [#deadlines.at(i)]
           }
         ],
       )
@@ -40,13 +40,13 @@
     for i in range(rows_bottom) {
       (
         table.cell(fill: lighterblue, colspan: 3, align: left)[
-          #if i < ressourcen.len() {
-            [- #ressourcen.at(i)]
+          #if i < resources.len() {
+            [- #resources.at(i)]
           }
         ],
         table.cell(fill: lighterblue, align: left)[
-          #if i < stunden.len() {
-            [#stunden.at(i)]
+          #if i < hours.len() {
+            [#hours.at(i)]
           }
         ],
       )
@@ -54,7 +54,7 @@
   ).flatten()
 
   figure(
-    caption: [Arbeitspaket #nummer – #titel],
+    caption: [Work Package #number – #title],
     kind: table,
 
     table(
@@ -62,24 +62,24 @@
       stroke: none,
       inset: 6pt,
 
-      table.cell(fill: mainblue, align: left)[*#nummer*],
-      table.cell(fill: mainblue)[*#titel*],
+      table.cell(fill: mainblue, align: left)[*#number*],
+      table.cell(fill: mainblue)[*#title*],
       table.cell(fill: mainblue, colspan: 2)[*#owner*],
 
-      table.cell(fill: lightblue, colspan: 2, align: left)[*Inhalte:*],
-      table.cell(fill: lightblue, align: left)[*Verantwortung:*],
-      table.cell(fill: lightblue, align: left)[*Termin:*],
+      table.cell(fill: lightblue, colspan: 2, align: left)[*Contents:*],
+      table.cell(fill: lightblue, align: left)[*Responsibility:*],
+      table.cell(fill: lightblue, align: left)[*Deadline:*],
 
       ..top_rows,
 
-      table.cell(fill: lighterblue, colspan: 3, align: left)[*Ressourcenplanung:*],
-      table.cell(fill: lighterblue, align: left)[*Anzahl Stunden*],
+      table.cell(fill: lighterblue, colspan: 3, align: left)[*Resource Planning:*],
+      table.cell(fill: lighterblue, align: left)[*Hours*],
 
       ..bottom_rows,
 
       table.cell(fill: lighterblue.lighten(50%), colspan: 4, align: left)[
-        *Ergebnis:*
-        #for e in ergebnis [
+        *Results:*
+        #for e in results [
           - #e
         ]
       ],

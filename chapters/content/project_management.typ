@@ -1,6 +1,6 @@
 #import "../../colors.typ": page_author, lightblue, lighterblue, mainblue
-#import "../../utils/work_packages.typ": arbeitspaket
-#import "../../utils/cost_breakdown.typ": kostenaufstellung
+#import "../../utils/work_packages.typ": work_package
+#import "../../utils/cost_breakdown.typ": cost_breakdown
 
 #page_author.update("First Last")
 
@@ -19,42 +19,42 @@
     align: (left + top, left + top),
     fill: (x, _y) => if x == 0 { lightblue } else { lighterblue },
 
-    [*Projekttitel*], [Your project title],
-    [*Erstellt von*], [First Last],
-    [*Datum*], [DD. Month YYYY],
-    [*Starttermin*], [DD.MM.YYYY],
-    [*Endtermin*], [DD.MM.YYYY],
+    [*Project Title*], [Your project title],
+    [*Created by*], [First Last],
+    [*Date*], [DD. Month YYYY],
+    [*Start date*], [DD.MM.YYYY],
+    [*End date*], [DD.MM.YYYY],
 
-    [*Aufgabenstellung*],
+    [*Task definition*],
     [
       Describe the overall goal of the project in 2–4 sentences.
     ],
 
-    [*Situationsanalyse*],
+    [*Situation analysis*],
     [
       List skills or equipment that need to be acquired for this project.
     ],
 
-    [*Projektziele*],
+    [*Project goals*],
     [
       + Goal 1 (measurable)
       + Goal 2 (measurable)
       + Goal 3 (measurable)
     ],
 
-    [*Projektkosten*],
+    [*Project costs*],
     [
       *Material costs:* approx. X €
 
       *Personnel costs:* Y h × 10 €/h = Z €
     ],
 
-    [*Projektrisiken*],
+    [*Project risks*],
     [
       Describe 2–3 risks and how you plan to mitigate them.
     ],
 
-    [*Projektorganisation*],
+    [*Project organisation*],
     [
       - *Project lead:* First Last
       - *Supervisor:* Prof. ...
@@ -72,16 +72,16 @@
 //   caption: [Projektstrukturplan],
 // )<fig:psp>
 
-// Then add work packages using the arbeitspaket() function:
-// #arbeitspaket(
+// Then add work packages using the work_package() function:
+// #work_package(
 //   1,                          // number
 //   [Project Management],       // title
 //   [First Last],               // owner
 //   ([1.1 Planning], [1.2 ...]),// contents
-//   ([First Last], [...]),      // responsibility
+//   ([First Last], [...]),      // responsibilities
 //   ([DD.MM.YY], [...]),        // deadlines
 //   ([1.1 Planning], [...]),    // resources
-//   ([5 Stunden], [...]),       // hours
+//   ([5 h], [...]),             // hours
 //   ([Project plan completed],), // results
 // )
 
@@ -100,7 +100,7 @@
       if y == 0 { mainblue } else if calc.odd(y) { lightblue } else { lighterblue }
     },
 
-    [*Meilenstein*], [*Datum-Soll*], [*Datum-Ist*],
+    [*Milestone*], [*Target date*], [*Actual date*],
 
     [Kickoff], [DD.MM.YY], [DD.MM.YY],
     [Milestone 2], [DD.MM.YY], [offen],
@@ -137,8 +137,8 @@
 // Use the kostenaufstellung() function from utils/cost_breakdown.typ
 // to generate a formatted cost table. Example:
 //
-// #let positions = (
-//   (name: "Component A", menge: 2, einheit: "Stück", preis: 15.00),
-//   (name: "Component B", menge: 1, einheit: "Stück", preis: 49.90),
+// #let items = (
+//   (name: "Component A", quantity: 2, unit: "pcs", price: 15.00),
+//   (name: "Component B", quantity: 1, unit: "pcs", price: 49.90),
 // )
-// #kostenaufstellung("Hardware", "Your Project", positions, ("All prices incl. VAT.",))
+// #cost_breakdown("Hardware", "Your Project", items, ("All prices incl. VAT.",))

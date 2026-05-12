@@ -67,9 +67,6 @@
 #include "chapters/frontmatter/titlepage.typ"
 #pagebreak()
 
-#include "chapters/frontmatter/info.typ"
-#pagebreak()
-
 #heading(level: 1, outlined: false)[Eidesstattliche Erklärung]
 #include "chapters/frontmatter/declaration.typ"
 #pagebreak()
