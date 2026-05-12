@@ -1,6 +1,7 @@
 #import "../../colors.typ": page_author, lightblue, lighterblue, mainblue
 #import "../../utils/work_packages.typ": work_package
 #import "../../utils/cost_breakdown.typ": cost_breakdown
+#import "../../utils/todo.typ": TODO
 
 #page_author.update("First Last")
 
@@ -19,46 +20,40 @@
     align: (left + top, left + top),
     fill: (x, _y) => if x == 0 { lightblue } else { lighterblue },
 
-    [*Projekttitel*], [Your project title],
-    [*Erstellt von*], [First Last],
-    [*Datum*], [DD. Month YYYY],
-    [*Starttermin*], [DD.MM.YYYY],
-    [*Endtermin*], [DD.MM.YYYY],
+    [*Projekttitel*], [Titel der Diplomarbeit],
+    [*Erstellt von*], [Vorname Nachname],
+    [*Datum*], [DD. Monat JJJJ],
+    [*Starttermin*], [DD.MM.JJJJ],
+    [*Endtermin*], [DD.MM.JJJJ],
 
     [*Aufgabenstellung*],
-    [
-      Describe the overall goal of the project in 2–4 sentences.
-    ],
+    [#TODO[Gesamtziel des Projekts in 2–4 Sätzen beschreiben.]],
 
     [*Situationsanalyse*],
-    [
-      List skills or equipment that need to be acquired for this project.
-    ],
+    [#TODO[Kenntnisse oder Ausrüstung auflisten, die für dieses Projekt erworben werden müssen.]],
 
     [*Projektziele*],
-    [
-      + Goal 1 (measurable)
-      + Goal 2 (measurable)
-      + Goal 3 (measurable)
-    ],
+    [#TODO[
+      + Ziel 1 (messbar)
+      + Ziel 2 (messbar)
+      + Ziel 3 (messbar)
+    ]],
 
     [*Projektkosten*],
-    [
-      *Material costs:* approx. X €
+    [#TODO[
+      *Materialkosten:* ca. X €
 
-      *Personnel costs:* Y h × 10 €/h = Z €
-    ],
+      *Personalkosten:* Y h × 10 €/h = Z €
+    ]],
 
     [*Projektrisiken*],
-    [
-      Describe 2–3 risks and how you plan to mitigate them.
-    ],
+    [#TODO[2–3 Risiken beschreiben und Maßnahmen zur Risikominimierung angeben.]],
 
     [*Projektorganisation*],
-    [
-      - *Project lead:* First Last
-      - *Supervisor:* Prof. ...
-    ],
+    [#TODO[
+      - *Projektleitung:* Vorname Nachname
+      - *Betreuer:* Prof. ...
+    ]],
   ),
 )<tab:Grobplan>
 
@@ -66,24 +61,24 @@
 
 == Projektstrukturplan
 
-// Insert your work breakdown structure (PSP) image here.
+#TODO[PSP-Grafik hier einfügen:]
 // #figure(
-//   image("../../img/your_psp.png", width: 100%),
+//   image("../../img/psp.png", width: 100%),
 //   caption: [Projektstrukturplan],
 // )<fig:psp>
 
-// Then add work packages using the work_package() function:
-// #work_package(
-//   1,                          // number
-//   [Project Management],       // title
-//   [First Last],               // owner
-//   ([1.1 Planning], [1.2 ...]),// contents
-//   ([First Last], [...]),      // responsibilities
-//   ([DD.MM.YY], [...]),        // deadlines
-//   ([1.1 Planning], [...]),    // resources
-//   ([5 h], [...]),             // hours
-//   ([Project plan completed],), // results
-// )
+// Arbeitspakete mit work_package() anlegen. Beispiel:
+#work_package(
+  1,
+  [Projektmanagement],
+  [Vorname Nachname],
+  ([1.1 Projektplanung], [1.2 Dokumentation]),
+  ([Vorname Nachname], [Vorname Nachname]),
+  ([DD.MM.JJ], [DD.MM.JJ]),
+  ([1.1 Projektplanung], [1.2 Dokumentation]),
+  ([10 h], [5 h]),
+  ([Projektplan fertiggestellt],),
+)
 
 == Meilensteinplan
 
@@ -95,50 +90,53 @@
     align: (left, right, right),
     inset: 4pt,
     stroke: 0.3pt + mainblue,
-
     fill: (x, y) => {
       if y == 0 { mainblue } else if calc.odd(y) { lightblue } else { lighterblue }
     },
 
     [*Meilenstein*], [*Datum-Soll*], [*Datum-Ist*],
 
-    [Kickoff], [DD.MM.YY], [DD.MM.YY],
-    [Milestone 2], [DD.MM.YY], [offen],
-    [Milestone 3], [DD.MM.YY], [offen],
-    [Project completed], [DD.MM.YY], [offen],
+    [Kickoff],              [DD.MM.JJ], [DD.MM.JJ],
+    [Meilenstein 2],        [DD.MM.JJ], [offen],
+    [Meilenstein 3],        [DD.MM.JJ], [offen],
+    [Projekt abgeschlossen],[DD.MM.JJ], [offen],
   )
-] <tab:milestones>
+] <tab:meilensteine>
 
 == Balken-Zeit-Diagramm
 
-// Insert your Gantt chart image here.
+#TODO[Gantt-Diagramm hier einfügen:]
 // #figure(
-//   image("../../img/your_gantt.png", width: 100%),
+//   image("../../img/gantt.png", width: 100%),
 //   caption: [Balken-Zeit-Diagramm],
 // )
 
 == Tagebuch
 
-// Document your project diary here.
-// You can either write entries manually or import from a CSV file.
-// See utils/work_packages.typ for the table helper.
-//
-// Manual example:
-// #table(
-//   columns: (auto, auto, auto, 1fr),
-//   stroke: 0.3pt + mainblue,
-//   table.header([Datum], [Von], [Bis], [Beschreibung]),
-//   [DD.MM.YY], [HH:MM], [HH:MM], [What you did],
-// )
+#TODO[Projekttagebuch hier eintragen:]
+#table(
+  columns: (auto, auto, auto, 1fr),
+  stroke: 0.3pt + mainblue,
+  inset: 6pt,
+  fill: (x, y) => {
+    if y == 0 { mainblue } else if calc.odd(y) { lightblue } else { lighterblue }
+  },
+  table.header([*Datum*], [*Von*], [*Bis*], [*Tätigkeit*]),
+  [DD.MM.JJ], [HH:MM], [HH:MM], [Tätigkeit beschreiben],
+  [DD.MM.JJ], [HH:MM], [HH:MM], [Tätigkeit beschreiben],
+)
 
 == Soll-Ist-Vergleich
 
-// Compare planned vs actual hours and costs here.
-// Use the kostenaufstellung() function from utils/cost_breakdown.typ
-// to generate a formatted cost table. Example:
-//
-// #let items = (
-//   (name: "Component A", quantity: 2, unit: "pcs", price: 15.00),
-//   (name: "Component B", quantity: 1, unit: "pcs", price: 49.90),
-// )
-// #cost_breakdown("Hardware", "Your Project", items, ("All prices incl. VAT.",))
+// Kostenaufstellung mit cost_breakdown() erstellen. Beispiel:
+#let items = (
+  (name: "Komponente A", quantity: 2, unit: "Stück", price: 15.00),
+  (name: "Komponente B", quantity: 1, unit: "Stück", price: 49.90),
+  (name: "Entwicklungszeit", quantity: 20, unit: "Stunden", price: 10.00),
+)
+#cost_breakdown(
+  "Hardware und Personal",
+  "Titel der Diplomarbeit",
+  items,
+  ("Alle Preise inkl. MwSt.",),
+)
