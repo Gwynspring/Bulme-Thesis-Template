@@ -1,19 +1,27 @@
 #import "../../colors.typ": page_author
+#import "../../utils/todo.typ": TODO
+
 #page_author.update("First Last")
 
 = Fazit
 
 == Zusammenfassung und Ergebnisse
 
-// Summarise what was built and achieved.
-// Reference the relevant chapters: @chap:xyz, @chap:abc
+#TODO[
+  - Was wurde entwickelt und erreicht?
+  - Relevante Kapitel referenzieren: @chap:kandidat1, @chap:kandidat2
+]
 
 == Bewertung der Zielsetzung
 
-// Compare results against the goals stated in the introduction.
-// What was fully achieved? What is still pending and why?
+#TODO[
+  - Ergebnisse mit den in der Einleitung formulierten Zielen vergleichen.
+  - Was wurde vollständig erreicht? Was ist noch offen und warum?
+]
 
 == Ausblick
 
-// What are the logical next steps?
-// What could be improved or extended in the future?
+#TODO[
+  - Welche logischen nächsten Schritte gibt es?
+  - Was könnte in Zukunft verbessert oder erweitert werden?
+]
