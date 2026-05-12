@@ -1,16 +1,25 @@
 #import "../../colors.typ": page_author
+#import "../../utils/todo.typ": TODO
+
 #page_author.update("First Last")
 
 = Aufgabenstellung
 
-== Overview
+== Überblick
 
-// Describe the overall system and its main components.
+#TODO[
+  - Gesamtsystem und seine Hauptkomponenten beschreiben.
+  - Welchen Zweck erfüllt das System?
+]
 
-== Main Components
+== Hauptkomponenten
 
-// List and briefly describe the key hardware/software components.
+#TODO[
+  - Wesentliche Hardware- und Softwarekomponenten auflisten und kurz erläutern.
+]
 
-== Workflow
+== Ablauf
 
-// Describe the automated sequence of operation step by step.
+#TODO[
+  - Den automatisierten Betriebsablauf Schritt für Schritt beschreiben.
+]

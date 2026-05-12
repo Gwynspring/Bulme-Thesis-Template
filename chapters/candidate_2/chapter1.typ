@@ -1,58 +1,122 @@
 #import "../../colors.typ": lightblue, lighterblue, mainblue
-#import "../../utils/code.typ": code, code_cpp, code_py
-#import "../../utils/analysis.typ": analyse_attribute_table, analyse_function_table
+#import "../../utils/code.typ": code, code_cpp, code_py, code_yaml
+#import "../../utils/analysis.typ": analyse_function_table, analyse_attribute_table
+#import "../../utils/todo.typ": TODO
 
-= Chapter Title
+= Typst-Referenz für diese Vorlage <chap:kandidat2>
 
-// Write your introduction paragraph here.
-// Explain what this chapter covers and why it matters.
+Dieses Kapitel demonstriert weitere Möglichkeiten der Vorlage.
+Es dient als Nachschlagewerk und kann nach dem Ausfüllen gelöscht werden.
 
-== Background
+== Textformatierung
 
-// Provide theoretical background for your topic.
-// Cite your sources using @yourkey — defined in references.bib.
+Typst unterstützt *Fettschrift*, _Kursivschrift_ und `Inline-Code`.
+Fußnoten werden mit `#footnote[...]` gesetzt.#footnote[So sieht eine Fußnote aus — sie erscheint automatisch am Seitenende.]
 
-== Implementation
+Absätze werden durch eine Leerzeile getrennt.
+Innerhalb eines Absatzes erzeugt ein einfacher Zeilenumbruch im Quelltext kein neues Absatz.
 
-// Describe your implementation. Use subsections as needed.
+== Listen und Aufzählungen
 
-=== Code Example
+Unsortierte Liste:
+- Erster Punkt
+- Zweiter Punkt
+  - Eingerückter Unterpunkt
+  - Noch ein Unterpunkt
+- Dritter Punkt
 
-// Use code_cpp() for C++, code_py() for Python, code() for other languages.
-#code_cpp(
-  caption: [Example: reading a sensor value],
-  "int readSensor(int pin) {
-    int value = analogRead(pin);
-    return map(value, 0, 1023, 0, 100);
-}",
-)
+Nummerierte Liste:
++ Schritt 1: Sensor initialisieren
++ Schritt 2: Messung starten
++ Schritt 3: Daten auswerten
 
-=== Figure Example
+Gemischte Aufzählung mit Inline-Inhalt:
+/ Typst: Modernes Satzsystem, speziell für wissenschaftliche Dokumente.
+/ LaTeX: Etabliertes System mit großem Ökosystem, steilere Lernkurve.
+/ Word: Weit verbreitet, weniger geeignet für komplexe Formeln.
 
-#figure(
-  image("../../img/placeholder.png", width: 60%),
-  caption: [Replace this with your actual figure],
-) <fig:example>
+== Querverweise
 
-// Reference a figure: see @fig:example.
+Auf Abbildungen, Tabellen und Kapitel kann mit `@label` verwiesen werden.
 
-=== Table Example
+- Abbildung aus Kapitel 1: @fig:k1-beispiel
+- Tabelle aus Kapitel 1: @tab:k1-parameter
+- Anderes Kapitel: @chap:kandidat1
+- Gleichung aus Kapitel 1: @eq:k1-ohm
+
+Literatur wird mit `@schluessel` zitiert — der Eintrag muss in `references.bib` vorhanden sein.
+
+== YAML-Konfigurationsbeispiel
+
+#code_yaml(caption: [Beispiel: Gerätekonfiguration],
+"device:
+  name: Sensor-Node-01
+  baudrate: 9600
+  sampling_rate_hz: 10
+  pins:
+    sensor: 34
+    led: 2")
+
+== Komplexere Tabelle
+
+Tabellen können mehrspaltigen Header und farbige Zeilen haben:
 
 #figure(
   table(
-    columns: (auto, 1fr),
+    columns: (1fr, auto, auto, auto),
     inset: 6pt,
-    stroke: 0.4pt + gray,
+    stroke: none,
     fill: (x, y) => if y == 0 { mainblue } else if calc.odd(y) { lighterblue } else { lightblue },
-    table.header([*Parameter*], [*Value*]),
-    [Supply voltage], [3.3 V],
-    [Operating frequency], [400 kHz],
-    [Resolution], [16 bit],
+    table.header(
+      [*Komponente*], [*Spannung*], [*Strom*], [*Leistung*],
+    ),
+    [Mikrocontroller], [3,3 V], [80 mA],  [0,26 W],
+    [Sensor],          [3,3 V], [12 mA],  [0,04 W],
+    [Display],         [5,0 V], [150 mA], [0,75 W],
+    [Gesamt],          [—],     [242 mA], [1,05 W],
   ),
-  caption: [Example parameters],
-) <tab:example>
+  caption: [Leistungsbilanz der Komponenten],
+) <tab:k2-leistung>
 
-== Results
+== Mathematische Gleichungen
 
-// Describe what you measured, tested, or verified.
-// Reference your figures and tables: @fig:example, @tab:example.
+Gleichungen werden in `$ ... $` gesetzt und automatisch nummeriert:
+
+$ P = U dot I $ <eq:k2-leistung>
+
+Mehrzeilige Gleichungen mit Ausrichtung:
+
+$
+  Q &= m dot c dot Delta T \
+  W &= F dot s \
+  P &= W / t
+$ <eq:k2-physik>
+
+Im Text wird auf @eq:k2-leistung und @eq:k2-physik verwiesen.
+
+== Funktions- und Attributreferenz
+
+#figure(
+  analyse_function_table(
+    [void], [setPWM(int pin, int duty)], [Setzt das PWM-Signal auf den gewünschten Tastgrad (0–100 %).],
+    [int],  [readVoltage(int pin)],      [Liest die Spannung am ADC-Pin in Millivolt.],
+    [bool], [isConnected()],            [Gibt true zurück, wenn die Verbindung aktiv ist.],
+  ),
+  caption: [Steuermodul – Funktionsreferenz],
+) <tab:k2-funktionen>
+
+#figure(
+  analyse_attribute_table(
+    [int],    [pwmPin],    [GPIO-Pin-Nummer für das PWM-Signal.],
+    [int],    [dutyCycle], [Aktueller Tastgrad in Prozent (0–100).],
+    [String], [deviceId],  [Eindeutige Gerätekennung für die Kommunikation.],
+  ),
+  caption: [Steuermodul – Attributreferenz],
+) <tab:k2-attribute>
+
+== Ergebnisse
+
+#TODO[
+  - Was wurde gemessen, getestet oder verifiziert?
+  - Abbildungen und Tabellen referenzieren: @tab:k2-leistung, @eq:k2-leistung.
+]

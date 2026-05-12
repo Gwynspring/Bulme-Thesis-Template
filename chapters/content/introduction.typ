@@ -1,23 +1,29 @@
 #import "../../colors.typ": page_author
+#import "../../utils/todo.typ": TODO
+
 #page_author.update("First Last")
 
 = Einleitung
 
 == Motivation und Ausgangssituation
 
-// Why does this project exist? What problem does it solve?
-// Describe the context: who commissioned it, what gap it fills.
+#TODO[
+  - Warum existiert dieses Projekt?
+  - Welches Problem wird gelöst?
+  - Kontext: Wer hat es beauftragt, welche Lücke füllt es?
+]
 
 == Zielsetzung
 
-// What should the system/device be able to do?
-// State measurable goals where possible.
-// Also define what is explicitly NOT part of this thesis.
+#TODO[
+  - Was soll das System/Gerät können?
+  - Messbare Ziele formulieren.
+  - Was ist ausdrücklich *nicht* Teil dieser Arbeit?
+]
 
 == Aufbau der Arbeit
 
-// One or two sentences per chapter explaining what it covers.
-// Example:
-//
-// @chap:xyz describes ...
-// @chap:abc presents the implementation of ...
+#TODO[
+  - Ein bis zwei Sätze pro Kapitel, die erklären, was es behandelt.
+  - Beispiel: @chap:kandidat1 beschreibt …
+]

@@ -3,5 +3,4 @@
 #TODO[
   - Wer hat dich während des Projekts unterstützt?
   - Typische Personen: Betreuer, Familie, Freunde, Kollegen.
-  - Umfang: ca. eine halbe Seite.
 ]

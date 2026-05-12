@@ -7,9 +7,10 @@
   ..rows,
 ) = table(
   columns: (auto, auto, auto),
-  stroke: 0.4pt + gray,
+  stroke: none,
   inset: 6pt,
   align: (left, left, left),
+  fill: (x, y) => if y == 0 { mainblue } else if calc.odd(y) { lighterblue } else { lightblue },
 
   table.header(
     table.cell(fill: mainblue)[#text(weight: "bold")[#title1]],
@@ -27,9 +28,10 @@
   ..rows,
 ) = table(
   columns: (auto, 1fr, 1.6fr),
-  stroke: 0.4pt + gray,
+  stroke: none,
   inset: 6pt,
   align: (left, left, left),
+  fill: (x, y) => if y == 0 { mainblue } else if calc.odd(y) { lighterblue } else { lightblue },
 
   table.header(
     table.cell(fill: mainblue)[#text(weight: "bold")[#title1]],
