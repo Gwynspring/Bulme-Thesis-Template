@@ -10,10 +10,11 @@
 
 == Grundlagen
 
-#TODO[
-  - Theoretischen Hintergrund zum Thema beschreiben.
-  - Quellen mit `@schluessel` zitieren — in `references.bib` definiert.
-]
+#TODO[Theoretischen Hintergrund zum Thema beschreiben und durch eigene Quellen ersetzen.]
+
+Die Implementierung basiert auf den Grundlagen der C++-Programmierung nach @stroustrup2013cpp.
+Für die Ansteuerung der Hardware wurde die offizielle Arduino-Referenz @arduino2024ref verwendet.
+Details zur Peripherie des Mikrocontrollers sind im technischen Referenzhandbuch @espressif2023esp32 dokumentiert.
 
 == Implementierung
 

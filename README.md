@@ -66,12 +66,9 @@ Jeder Kandidat hat einen eigenen Unterordner unter `chapters/`:
 ```
 chapters/
   candidate_1/
-    chapter1.typ   ← Beispielkapitel, umbenennen und erweitern
-    chapter2.typ
-    ...
+    chapter1.typ   ← zeigt Code, Abbildungen, Tabellen, Gleichungen, API-Referenz
   candidate_2/
-    chapter1.typ
-    ...
+    chapter1.typ   ← zeigt Textformatierung, Listen, Querverweise, YAML, Zitate
 ```
 
 Die Kapitel werden in `chapters/content/body.typ` eingebunden. Vor jedem Kandidatenblock muss `page_author` aktualisiert werden, damit der richtige Name in der Fußzeile erscheint:
@@ -88,9 +85,20 @@ Die Kapitel werden in `chapters/content/body.typ` eingebunden. Vor jedem Kandida
 
 ### 4. Literatur eintragen
 
-`references.bib` mit BibTeX-Einträgen befüllen.
-Zitieren mit `@schlüssel` an beliebiger Stelle im Dokument.
+`references.bib` enthält bereits drei Beispieleinträge (Buch, Online-Quelle, Handbuch) als Vorlage:
+
+```bibtex
+@book{stroustrup2013cpp, ... }
+@online{arduino2024ref, ... }
+@manual{espressif2023esp32, ... }
+```
+
+Diese durch eigene Quellen ersetzen und im Text mit `@schluessel` zitieren.
 Die Bibliografie verwendet den IEEE-Stil.
+
+### 5. TODO-Boxen abarbeiten
+
+Alle Platzhalter im Dokument sind als gelbe **TODO-Boxen** sichtbar, die im kompilierten PDF erscheinen. Einfach den Inhalt ersetzen und die `#TODO[...]`-Box entfernen.
 
 ---
 
@@ -101,14 +109,14 @@ Bulme-Thesis-Template/
 ├── main.typ                     ← Einstiegspunkt, Seitenlayout, Einbindereihenfolge
 ├── metadata.typ                 ← Titel, Namen, Betreuer ← HIER BEARBEITEN
 ├── colors.typ                   ← Blaue Farbpalette + page_author-State
-├── references.bib               ← Literaturverzeichnis (BibTeX)
+├── references.bib               ← Literaturverzeichnis (BibTeX, 3 Beispiele)
 │
 ├── utils/                       ← Wiederverwendbare Typst-Funktionen
 │   ├── code.typ                 ← Code-Blöcke mit Zeilennummern (C++, Python, YAML)
 │   ├── analysis.typ             ← Tabellen für API-/Klassendokumentation
 │   ├── work_packages.typ        ← Arbeitspakettabellen für das Projektmanagement
 │   ├── cost_breakdown.typ       ← Kostentabellen mit automatischer Summenberechnung
-│   ├── todo.typ                 ← TODO-Hinweisbox
+│   ├── todo.typ                 ← Gelbe TODO-Hinweisbox
 │   └── prompt_figure.typ        ← KI-Prompt-Dokumentation für das Promptverzeichnis
 │
 ├── img/                         ← Bilder und Diagramme
@@ -121,24 +129,24 @@ Bulme-Thesis-Template/
     │   ├── titlepage.typ
     │   ├── declaration.typ
     │   ├── abstract_en.typ      ← Englischer Abstract (~200 Wörter)
-    │   ├── abstract_de.typ      ← Deutsche Kurzfassung (~200 Wörter)
-    │   ├── preface.typ
-    │   ├── acknowledgements.typ
+    │   ├── abstract_de.typ      ← Deutsche Kurzfassung (~200 Wörter, mit TODO-Leitfragen)
+    │   ├── preface.typ          ← Vorwort (mit TODO-Leitfragen)
+    │   ├── acknowledgements.typ ← Danksagung (mit TODO-Leitfragen)
     │   └── team.typ
     ├── content/                 ← Gemeinsame Strukturkapitel
     │   ├── toc.typ
-    │   ├── introduction.typ
-    │   ├── task.typ
+    │   ├── introduction.typ     ← Einleitung (mit TODO-Leitfragen)
+    │   ├── task.typ             ← Aufgabenstellung (mit TODO-Leitfragen)
     │   ├── body.typ             ← Bindet Kandidatenkapitel ein; page_author hier setzen
-    │   ├── project_management.typ
-    │   ├── conclusion.typ
+    │   ├── project_management.typ ← Grobplan, Arbeitspakete, Meilensteine, Kosten
+    │   ├── conclusion.typ       ← Fazit (mit TODO-Leitfragen)
     │   ├── indices.typ          ← Abbildungs-/Tabellen-/Codelisten, Abkürzungen, Prompts
     │   ├── bibliography.typ
     │   └── appendix.typ
     ├── candidate_1/             ← Inhaltskapitel von Kandidat 1
-    │   └── chapter1.typ         ← Beispielkapitel mit allen Template-Funktionen
+    │   └── chapter1.typ         ← Beispiel: Code, Abbildung, Tabelle, Gleichung, API-Referenz
     └── candidate_2/             ← Inhaltskapitel von Kandidat 2
-        └── chapter1.typ
+        └── chapter1.typ         ← Beispiel: Formatierung, Listen, Querverweise, Zitate
 ```
 
 ---
@@ -148,10 +156,10 @@ Bulme-Thesis-Template/
 | Datei | Funktion(en) | Verwendung |
 |---|---|---|
 | `code.typ` | `code_cpp()`, `code_py()`, `code_yaml()`, `code()` | Nummerierte Code-Blöcke mit Syntaxhervorhebung |
-| `analysis.typ` | `analyse_function_table()`, `analyse_attribute_table()` | Tabellen für API-/Klassendokumentation |
+| `analysis.typ` | `analyse_function_table()`, `analyse_attribute_table()` | API-/Klassendokumentation mit Blauabstufungen |
 | `work_packages.typ` | `work_package()` | Arbeitspakettabellen für das Projektmanagement |
 | `cost_breakdown.typ` | `cost_breakdown()` | Kostentabellen mit automatischer Summenberechnung |
-| `todo.typ` | `TODO` | Gelbe Hinweisbox für Entwurfsnotizen |
+| `todo.typ` | `TODO` | Gelbe Hinweisbox — im PDF sichtbar, vor Abgabe entfernen |
 | `prompt_figure.typ` | `prompt-figure()` | KI-Prompts für das Promptverzeichnis dokumentieren |
 
 ---
@@ -167,7 +175,8 @@ Folgende Überschriften im PDF sind **von der BULME vorgeschrieben** und dürfen
 - `Projektteam und Projektbetreuer`
 - `Abbildungsverzeichnis`, `Tabellenverzeichnis`, `Abkürzungsverzeichnis`, `Promptverzeichnis`
 
-Alle anderen Vorlagenkommentare, Platzhaltertexte und Funktionsnamen sind auf Englisch.
+Funktions- und Variablennamen sowie Kommentare im Quellcode sind auf Englisch.
+Alle im PDF sichtbaren Tabellentexte (Header, Beschriftungen) sind auf Deutsch.
 
 ---
 
@@ -183,9 +192,19 @@ Alle anderen Vorlagenkommentare, Platzhaltertexte und Funktionsnamen sind auf En
 @chap:label   // Kapitel
 @fig:label    // Abbildung
 @tab:label    // Tabelle
+@eq:label     // Gleichung
 
-// Zitat
-@bibschluessel
+// Literaturzitat (Eintrag muss in references.bib vorhanden sein)
+@stroustrup2013cpp
+
+// Textformatierung
+*Fettschrift*  _Kursivschrift_  `Inline-Code`
+#footnote[Fußnotentext]
+
+// Aufzählungen
+- Unsortiert
++ Nummeriert
+/ Begriff: Definition
 
 // Abbildung mit Bild
 #figure(
@@ -193,14 +212,22 @@ Alle anderen Vorlagenkommentare, Platzhaltertexte und Funktionsnamen sind auf En
   caption: [Beschreibung],
 ) <fig:label>
 
-// Code-Block (C++)
+// Code-Block (C++, Python, YAML)
 #import "../../utils/code.typ": code_cpp
-#code_cpp(caption: [Meine Funktion])[
-void setup() { ... }
-]
+#code_cpp(caption: [Meine Funktion], "void setup() { ... }")
 
 // Mathematische Gleichung (nummeriert)
 $ F = m dot a $ <eq:newton>
+
+// Mehrzeilige Gleichung mit Ausrichtung
+$
+  U &= R dot I \
+  P &= U dot I
+$ <eq:leistung>
+
+// TODO-Box (im PDF sichtbar — vor Abgabe entfernen)
+#import "../../utils/todo.typ": TODO
+#TODO[Dieser Abschnitt muss noch ausgefüllt werden.]
 ```
 
 ---
