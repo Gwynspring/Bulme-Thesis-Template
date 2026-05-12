@@ -19,42 +19,42 @@
     align: (left + top, left + top),
     fill: (x, _y) => if x == 0 { lightblue } else { lighterblue },
 
-    [*Project Title*], [Your project title],
-    [*Created by*], [First Last],
-    [*Date*], [DD. Month YYYY],
-    [*Start date*], [DD.MM.YYYY],
-    [*End date*], [DD.MM.YYYY],
+    [*Projekttitel*], [Your project title],
+    [*Erstellt von*], [First Last],
+    [*Datum*], [DD. Month YYYY],
+    [*Starttermin*], [DD.MM.YYYY],
+    [*Endtermin*], [DD.MM.YYYY],
 
-    [*Task definition*],
+    [*Aufgabenstellung*],
     [
       Describe the overall goal of the project in 2–4 sentences.
     ],
 
-    [*Situation analysis*],
+    [*Situationsanalyse*],
     [
       List skills or equipment that need to be acquired for this project.
     ],
 
-    [*Project goals*],
+    [*Projektziele*],
     [
       + Goal 1 (measurable)
       + Goal 2 (measurable)
       + Goal 3 (measurable)
     ],
 
-    [*Project costs*],
+    [*Projektkosten*],
     [
       *Material costs:* approx. X €
 
       *Personnel costs:* Y h × 10 €/h = Z €
     ],
 
-    [*Project risks*],
+    [*Projektrisiken*],
     [
       Describe 2–3 risks and how you plan to mitigate them.
     ],
 
-    [*Project organisation*],
+    [*Projektorganisation*],
     [
       - *Project lead:* First Last
       - *Supervisor:* Prof. ...
@@ -100,7 +100,7 @@
       if y == 0 { mainblue } else if calc.odd(y) { lightblue } else { lighterblue }
     },
 
-    [*Milestone*], [*Target date*], [*Actual date*],
+    [*Meilenstein*], [*Datum-Soll*], [*Datum-Ist*],
 
     [Kickoff], [DD.MM.YY], [DD.MM.YY],
     [Milestone 2], [DD.MM.YY], [offen],

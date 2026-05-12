@@ -1,72 +1,72 @@
-# BULME Thesis Template
+# BULME Diplomarbeitsvorlage
 
-A [Typst](https://typst.app) template for HTL diploma theses at **BULME Graz-Gösting** (Höhere Technische Bundes-Lehranstalt Graz-Gösting).
+Eine [Typst](https://typst.app)-Vorlage für HTL-Diplomarbeiten an der **BULME Graz-Gösting** (Höhere Technische Bundes-Lehranstalt Graz-Gösting).
 
 ---
 
-## Prerequisites
+## Voraussetzungen
 
-Install Typst: https://github.com/typst/typst#installation
+Typst installieren: https://github.com/typst/typst#installation
 
 ```bash
 # macOS / Linux via cargo
 cargo install typst-cli
 
-# or download a pre-built binary from the releases page
+# oder ein vorgefertigtes Binary von der Releases-Seite herunterladen
 ```
 
 ---
 
-## Quickstart
+## Schnellstart
 
 ```bash
 git clone https://github.com/Gwynspring/Bulme-Thesis-Template
 cd Bulme-Thesis-Template
 
-# Edit your project details
-# (title, names, class, supervisor — see below)
+# Projektdaten eintragen
+# (Titel, Namen, Klasse, Betreuer — siehe unten)
 $EDITOR metadata.typ
 
-# Compile
+# Kompilieren
 typst compile main.typ main.pdf
 
-# Or watch for changes (auto-recompile on save)
+# Oder mit automatischer Neukompilierung beim Speichern
 typst watch main.typ main.pdf
 ```
 
 ---
 
-## Customising the template
+## Vorlage anpassen
 
-### 1. Fill in `metadata.typ`
+### 1. `metadata.typ` ausfüllen
 
-This is the **single file** you need to edit to set your title, names, and supervisor. All pages (title page, team page, declaration) pull from it automatically.
+Dies ist die **einzige Datei**, die für Titel, Namen und Betreuer bearbeitet werden muss. Alle Seiten (Titelseite, Teamseite, Eidesstattliche Erklärung) lesen ihre Daten automatisch daraus.
 
 ```typst
 #let meta = (
-  title: "Your Thesis Title",
+  title: "Titel der Diplomarbeit",
   year:  "2025/2026",
   supervisor: (name: "Prof. ...", ...),
   candidates: (
-    (name: "First Last", class: "8XYYY", ...),
+    (name: "Vorname Nachname", class: "8XYYY", ...),
   ),
 )
 ```
 
-### 2. Replace placeholder photos
+### 2. Fotos ersetzen
 
-Put your photos in `img/` and update the `photo` field in `metadata.typ`.
-Photos should be portrait-oriented (approx. 4 × 6 cm).
+Fotos in `img/` ablegen und das `photo`-Feld in `metadata.typ` anpassen.
+Hochformat empfohlen (ca. 4 × 6 cm).
 
-### 3. Add your content chapters
+### 3. Inhaltskapitel hinzufügen
 
-The template is structured for **two candidates** (typical for a BULME Diplomarbeit).
-Each candidate has their own subfolder under `chapters/`:
+Die Vorlage ist für **zwei Kandidaten** ausgelegt (typisch für eine BULME-Diplomarbeit).
+Jeder Kandidat hat einen eigenen Unterordner unter `chapters/`:
 
 ```
 chapters/
   candidate_1/
-    chapter1.typ   ← demo chapter, rename and extend
+    chapter1.typ   ← Beispielkapitel, umbenennen und erweitern
     chapter2.typ
     ...
   candidate_2/
@@ -74,137 +74,137 @@ chapters/
     ...
 ```
 
-Include them in `chapters/content/body.typ` and update the `page_author` state before each candidate's chapters so their name appears in the page footer:
+Die Kapitel werden in `chapters/content/body.typ` eingebunden. Vor jedem Kandidatenblock muss `page_author` aktualisiert werden, damit der richtige Name in der Fußzeile erscheint:
 
 ```typst
-#page_author.update("First Last candidate 1")
+#page_author.update("Vorname Nachname Kandidat 1")
 #include "../candidate_1/chapter1.typ"
 
-#page_author.update("First Last candidate 2")
+#page_author.update("Vorname Nachname Kandidat 2")
 #include "../candidate_2/chapter1.typ"
 ```
 
-`page_author` is a Typst state variable defined in `colors.typ`. Updating it before each `#include` causes the footer to display the correct author name on every page of that candidate's chapters.
+`page_author` ist eine Typst-State-Variable aus `colors.typ`. Durch das Aktualisieren vor jedem `#include` erscheint auf jeder Seite des jeweiligen Kandidaten der korrekte Name in der Fußzeile.
 
-### 4. Add references
+### 4. Literatur eintragen
 
-Edit `references.bib` with your BibTeX entries.
-Cite with `@yourkey` anywhere in the document.
-The bibliography uses IEEE style.
+`references.bib` mit BibTeX-Einträgen befüllen.
+Zitieren mit `@schlüssel` an beliebiger Stelle im Dokument.
+Die Bibliografie verwendet den IEEE-Stil.
 
 ---
 
-## Directory structure
+## Verzeichnisstruktur
 
 ```
 Bulme-Thesis-Template/
-├── main.typ                     ← entry point, page layout, include order
-├── metadata.typ                 ← title, names, supervisor ← EDIT THIS
-├── colors.typ                   ← blue colour palette + page_author state
-├── references.bib               ← bibliography (BibTeX)
+├── main.typ                     ← Einstiegspunkt, Seitenlayout, Einbindereihenfolge
+├── metadata.typ                 ← Titel, Namen, Betreuer ← HIER BEARBEITEN
+├── colors.typ                   ← Blaue Farbpalette + page_author-State
+├── references.bib               ← Literaturverzeichnis (BibTeX)
 │
-├── utils/                       ← reusable Typst functions
-│   ├── code.typ                 ← code blocks with line numbers (C++, Python, YAML)
-│   ├── analysis.typ             ← API documentation tables
-│   ├── work_packages.typ        ← project management work package tables
-│   ├── cost_breakdown.typ       ← cost tables with automatic totals
-│   ├── todo.typ                 ← TODO highlight box
-│   └── prompt_figure.typ        ← AI prompt documentation figures
+├── utils/                       ← Wiederverwendbare Typst-Funktionen
+│   ├── code.typ                 ← Code-Blöcke mit Zeilennummern (C++, Python, YAML)
+│   ├── analysis.typ             ← Tabellen für API-/Klassendokumentation
+│   ├── work_packages.typ        ← Arbeitspakettabellen für das Projektmanagement
+│   ├── cost_breakdown.typ       ← Kostentabellen mit automatischer Summenberechnung
+│   ├── todo.typ                 ← TODO-Hinweisbox
+│   └── prompt_figure.typ        ← KI-Prompt-Dokumentation für das Promptverzeichnis
 │
-├── img/                         ← images and diagrams
-│   ├── bulme.png                ← BULME logo (do not replace)
-│   ├── htl.png                  ← HTL logo (do not replace)
-│   └── placeholder.png          ← placeholder — replace with your images
+├── img/                         ← Bilder und Diagramme
+│   ├── bulme.png                ← BULME-Logo (nicht ersetzen)
+│   ├── htl.png                  ← HTL-Logo (nicht ersetzen)
+│   └── placeholder.png          ← Platzhalter — durch eigene Bilder ersetzen
 │
 └── chapters/
-    ├── frontmatter/             ← title page, declaration, abstracts, team
+    ├── frontmatter/             ← Titelseite, Erklärung, Kurzfassungen, Teamseite
     │   ├── titlepage.typ
     │   ├── declaration.typ
-    │   ├── abstract_en.typ      ← English abstract (~200 words)
-    │   ├── abstract_de.typ      ← German Kurzfassung (~200 words)
+    │   ├── abstract_en.typ      ← Englischer Abstract (~200 Wörter)
+    │   ├── abstract_de.typ      ← Deutsche Kurzfassung (~200 Wörter)
     │   ├── preface.typ
     │   ├── acknowledgements.typ
     │   └── team.typ
-    ├── content/                 ← shared structural chapters
+    ├── content/                 ← Gemeinsame Strukturkapitel
     │   ├── toc.typ
     │   ├── introduction.typ
     │   ├── task.typ
-    │   ├── body.typ             ← includes candidate chapters; update page_author here
+    │   ├── body.typ             ← Bindet Kandidatenkapitel ein; page_author hier setzen
     │   ├── project_management.typ
     │   ├── conclusion.typ
-    │   ├── indices.typ          ← figure/table/code lists + abbreviations + AI prompts
+    │   ├── indices.typ          ← Abbildungs-/Tabellen-/Codelisten, Abkürzungen, Prompts
     │   ├── bibliography.typ
     │   └── appendix.typ
-    ├── candidate_1/             ← candidate 1's content chapters
-    │   └── chapter1.typ         ← demo chapter showing all features
-    └── candidate_2/             ← candidate 2's content chapters
+    ├── candidate_1/             ← Inhaltskapitel von Kandidat 1
+    │   └── chapter1.typ         ← Beispielkapitel mit allen Template-Funktionen
+    └── candidate_2/             ← Inhaltskapitel von Kandidat 2
         └── chapter1.typ
 ```
 
 ---
 
-## Available utilities (`utils/`)
+## Verfügbare Hilfsfunktionen (`utils/`)
 
-| File | Function(s) | Usage |
+| Datei | Funktion(en) | Verwendung |
 |---|---|---|
-| `code.typ` | `code_cpp()`, `code_py()`, `code_yaml()`, `code()` | Numbered code blocks with syntax highlighting |
-| `analysis.typ` | `analyse_function_table()`, `analyse_attribute_table()` | API / class documentation tables |
-| `work_packages.typ` | `work_package()` | Project management work package tables |
-| `cost_breakdown.typ` | `cost_breakdown()` | Cost tables with automatic total calculation |
-| `todo.typ` | `TODO` | Yellow highlight box for draft notes |
-| `prompt_figure.typ` | `prompt-figure()` | Document AI prompts for the Promptverzeichnis |
+| `code.typ` | `code_cpp()`, `code_py()`, `code_yaml()`, `code()` | Nummerierte Code-Blöcke mit Syntaxhervorhebung |
+| `analysis.typ` | `analyse_function_table()`, `analyse_attribute_table()` | Tabellen für API-/Klassendokumentation |
+| `work_packages.typ` | `work_package()` | Arbeitspakettabellen für das Projektmanagement |
+| `cost_breakdown.typ` | `cost_breakdown()` | Kostentabellen mit automatischer Summenberechnung |
+| `todo.typ` | `TODO` | Gelbe Hinweisbox für Entwurfsnotizen |
+| `prompt_figure.typ` | `prompt-figure()` | KI-Prompts für das Promptverzeichnis dokumentieren |
 
 ---
 
-## German headings
+## Vorgeschriebene deutsche Überschriften
 
-Several headings in the compiled PDF are in German — this is **required by BULME** and must not be changed:
+Folgende Überschriften im PDF sind **von der BULME vorgeschrieben** und dürfen nicht geändert werden:
 
-- `Eidesstattliche Erklärung` (statutory declaration)
-- `Kurzfassung` (German abstract)
-- `Vorwort` (preface)
-- `Danksagung` (acknowledgements)
-- `Projektteam und Projektbetreuer` (team page)
-- `Abbildungsverzeichnis`, `Tabellenverzeichnis`, `Abkürzungsverzeichnis`, `Promptverzeichnis` (index sections)
+- `Eidesstattliche Erklärung`
+- `Kurzfassung`
+- `Vorwort`
+- `Danksagung`
+- `Projektteam und Projektbetreuer`
+- `Abbildungsverzeichnis`, `Tabellenverzeichnis`, `Abkürzungsverzeichnis`, `Promptverzeichnis`
 
-All other template code, comments, and placeholder text are in English.
+Alle anderen Vorlagenkommentare, Platzhaltertexte und Funktionsnamen sind auf Englisch.
 
 ---
 
-## Typst quick reference
+## Typst-Kurzreferenz
 
 ```typst
-// Heading (numbered, appears in TOC)
-= Chapter Title <chap:label>
-== Section
-=== Subsection
+// Überschrift (nummeriert, erscheint im Inhaltsverzeichnis)
+= Kapitelüberschrift <chap:label>
+== Abschnitt
+=== Unterabschnitt
 
-// Cross-reference
-@chap:label   // chapter
-@fig:label    // figure
-@tab:label    // table
+// Querverweise
+@chap:label   // Kapitel
+@fig:label    // Abbildung
+@tab:label    // Tabelle
 
-// Citation
-@bibkey
+// Zitat
+@bibschluessel
 
-// Figure with image
+// Abbildung mit Bild
 #figure(
-  image("../../img/your_image.png", width: 80%),
-  caption: [Description],
+  image("../../img/dein_bild.png", width: 80%),
+  caption: [Beschreibung],
 ) <fig:label>
 
-// Code block (C++)
+// Code-Block (C++)
 #import "../../utils/code.typ": code_cpp
-#code_cpp(caption: [My function])[
+#code_cpp(caption: [Meine Funktion])[
 void setup() { ... }
 ]
 
-// Math equation (numbered)
+// Mathematische Gleichung (nummeriert)
 $ F = m dot a $ <eq:newton>
 ```
 
 ---
 
-## License
+## Lizenz
 
-MIT — see [LICENSE](LICENSE).
+MIT — siehe [LICENSE](LICENSE).

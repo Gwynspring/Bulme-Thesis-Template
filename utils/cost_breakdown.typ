@@ -25,7 +25,7 @@
     .flatten()
 
   figure(
-    caption: [Cost Breakdown #title],
+    caption: [Kostenaufstellung #title],
     kind: table,
     table(
       columns: (3fr, 1fr, 1fr, 1.5fr, 1.5fr),
@@ -33,17 +33,17 @@
       inset: 6pt,
       table.cell(fill: mainblue, colspan: 3, align: left)[*#title*],
       table.cell(fill: mainblue, colspan: 2, align: right)[*#project*],
-      table.cell(fill: lightblue, align: left)[*Item*],
-      table.cell(fill: lightblue, align: center)[*Quantity*],
-      table.cell(fill: lightblue, align: center)[*Unit*],
-      table.cell(fill: lightblue, align: right)[*Unit Price*],
-      table.cell(fill: lightblue, align: right)[*Total Price*],
+      table.cell(fill: lightblue, align: left)[*Position*],
+      table.cell(fill: lightblue, align: center)[*Menge*],
+      table.cell(fill: lightblue, align: center)[*Einheit*],
+      table.cell(fill: lightblue, align: right)[*Einzelpreis*],
+      table.cell(fill: lightblue, align: right)[*Gesamtpreis*],
       ..item_rows,
-      table.cell(fill: mainblue, colspan: 4, align: right)[*Total Cost:*],
+      table.cell(fill: mainblue, colspan: 4, align: right)[*Gesamtkosten:*],
       table.cell(fill: mainblue, align: right)[*#fmt(total_cost)*],
       if notes.len() > 0 {
         table.cell(fill: lighterblue.lighten(50%), colspan: 5, align: left)[
-          *Notes:*
+          *Anmerkungen:*
           #for a in notes [- #a]
         ]
       },

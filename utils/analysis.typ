@@ -1,9 +1,9 @@
 #import "../colors.typ": lightblue, lighterblue, mainblue
 
 #let analyse_function_table(
-  title1: [Return type],
-  title2: [Method],
-  title3: [Description],
+  title1: [Rückgabetyp],
+  title2: [Methode],
+  title3: [Beschreibung],
   ..rows,
 ) = table(
   columns: (auto, auto, auto),
@@ -21,9 +21,9 @@
 )
 
 #let analyse_attribute_table(
-  title1: [Data type],
-  title2: [Attribute],
-  title3: [Description],
+  title1: [Datentyp],
+  title2: [Attribut],
+  title3: [Beschreibung],
   ..rows,
 ) = table(
   columns: (auto, 1fr, 1.6fr),

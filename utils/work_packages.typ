@@ -54,7 +54,7 @@
   ).flatten()
 
   figure(
-    caption: [Work Package #number – #title],
+    caption: [Arbeitspaket #number – #title],
     kind: table,
 
     table(
@@ -66,19 +66,19 @@
       table.cell(fill: mainblue)[*#title*],
       table.cell(fill: mainblue, colspan: 2)[*#owner*],
 
-      table.cell(fill: lightblue, colspan: 2, align: left)[*Contents:*],
-      table.cell(fill: lightblue, align: left)[*Responsibility:*],
-      table.cell(fill: lightblue, align: left)[*Deadline:*],
+      table.cell(fill: lightblue, colspan: 2, align: left)[*Inhalte:*],
+      table.cell(fill: lightblue, align: left)[*Verantwortung:*],
+      table.cell(fill: lightblue, align: left)[*Termin:*],
 
       ..top_rows,
 
-      table.cell(fill: lighterblue, colspan: 3, align: left)[*Resource Planning:*],
-      table.cell(fill: lighterblue, align: left)[*Hours*],
+      table.cell(fill: lighterblue, colspan: 3, align: left)[*Ressourcenplanung:*],
+      table.cell(fill: lighterblue, align: left)[*Anzahl Stunden*],
 
       ..bottom_rows,
 
       table.cell(fill: lighterblue.lighten(50%), colspan: 4, align: left)[
-        *Results:*
+        *Ergebnis:*
         #for e in results [
           - #e
         ]
