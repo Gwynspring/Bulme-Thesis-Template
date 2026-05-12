@@ -1,5 +1,5 @@
 #import "metadata.typ": *
-#import "colors.typ": lightblue, lighterblue, mainblue, page_author
+#import "globals.typ": lightblue, lighterblue, mainblue, page_author
 
 #let template_header = context {
   let headings = query(heading.where(level: 1))

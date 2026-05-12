@@ -1,4 +1,4 @@
-#import "../../colors.typ": page_author, lightblue, lighterblue, mainblue
+#import "../../globals.typ": page_author, lightblue, lighterblue, mainblue
 #import "../../utils/work_packages.typ": work_package
 #import "../../utils/cost_breakdown.typ": cost_breakdown
 #import "../../utils/todo.typ": TODO

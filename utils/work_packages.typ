@@ -1,4 +1,4 @@
-#import "../colors.typ": lightblue, lighterblue, mainblue
+#import "../globals.typ": lightblue, lighterblue, mainblue
 
 #let work_package(
   number,

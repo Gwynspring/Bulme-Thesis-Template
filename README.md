@@ -1,19 +1,14 @@
 # BULME Diplomarbeitsvorlage
 
-Eine [Typst](https://typst.app)-Vorlage für HTL-Diplomarbeiten an der **BULME Graz-Gösting** (Höhere Technische Bundes-Lehranstalt Graz-Gösting).
+Eine [Typst](https://typst.app)-Vorlage für HTL-Diplomarbeiten an der **BULME Graz-Gösting**.
 
 ---
 
 ## Voraussetzungen
 
-Typst installieren: https://github.com/typst/typst#installation
+Typst ist für Linux, macOS und Windows verfügbar [Typst download](https://typst.app/open-source/#download) 
 
-```bash
-# macOS / Linux via cargo
-cargo install typst-cli
-
-# oder ein vorgefertigtes Binary von der Releases-Seite herunterladen
-```
+Alternativ kann auch der Online-Editor verwendet werden. [Typst app](https://typst.app/)
 
 ---
 
@@ -60,7 +55,7 @@ Hochformat empfohlen (ca. 4 × 6 cm).
 
 ### 3. Inhaltskapitel hinzufügen
 
-Die Vorlage ist für **zwei Kandidaten** ausgelegt (typisch für eine BULME-Diplomarbeit).
+Die Vorlage ist für **zwei Kandidaten** ausgelegt.
 Jeder Kandidat hat einen eigenen Unterordner unter `chapters/`:
 
 ```
@@ -81,7 +76,7 @@ Die Kapitel werden in `chapters/content/body.typ` eingebunden. Vor jedem Kandida
 #include "../candidate_2/chapter1.typ"
 ```
 
-`page_author` ist eine Typst-State-Variable aus `colors.typ`. Durch das Aktualisieren vor jedem `#include` erscheint auf jeder Seite des jeweiligen Kandidaten der korrekte Name in der Fußzeile.
+`page_author` ist eine Typst-State-Variable aus `globals.typ`. Durch das Aktualisieren vor jedem `#include` erscheint auf jeder Seite des jeweiligen Kandidaten der korrekte Name in der Fußzeile.
 
 ### 4. Literatur eintragen
 
@@ -108,7 +103,7 @@ Alle Platzhalter im Dokument sind als gelbe **TODO-Boxen** sichtbar, die im komp
 Bulme-Thesis-Template/
 ├── main.typ                     ← Einstiegspunkt, Seitenlayout, Einbindereihenfolge
 ├── metadata.typ                 ← Titel, Namen, Betreuer ← HIER BEARBEITEN
-├── colors.typ                   ← Blaue Farbpalette + page_author-State
+├── globals.typ                  ← Globale Variablen: Farbpalette + page_author-State
 ├── references.bib               ← Literaturverzeichnis (BibTeX, 3 Beispiele)
 │
 ├── utils/                       ← Wiederverwendbare Typst-Funktionen

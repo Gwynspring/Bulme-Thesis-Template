@@ -1,4 +1,4 @@
-#import "../../colors.typ": page_author
+#import "../../globals.typ": page_author
 #import "../../utils/todo.typ": TODO
 
 #page_author.update("First Last")

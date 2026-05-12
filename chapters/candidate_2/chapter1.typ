@@ -1,4 +1,4 @@
-#import "../../colors.typ": lightblue, lighterblue, mainblue
+#import "../../globals.typ": lightblue, lighterblue, mainblue
 #import "../../utils/code.typ": code, code_cpp, code_py, code_yaml
 #import "../../utils/analysis.typ": analyse_attribute_table, analyse_function_table
 #import "../../utils/todo.typ": TODO

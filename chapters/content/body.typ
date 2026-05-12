@@ -1,4 +1,4 @@
-#import "../../colors.typ": page_author
+#import "../../globals.typ": page_author
 
 // Update this to your name — it appears in the footer of every page in this chapter.
 #page_author.update("First Last candidate 1")

@@ -1,4 +1,4 @@
-#import "../../colors.typ": lightblue, lighterblue, mainblue
+#import "../../globals.typ": lightblue, lighterblue, mainblue
 #import "../../utils/prompt_figure.typ": prompt-figure
 
 #let figure_outline_entry(kind, supplement) = it => {
