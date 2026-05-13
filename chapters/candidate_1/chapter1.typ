@@ -2,6 +2,7 @@
 #import "../../utils/code.typ": code, code_cpp, code_py, code_yaml
 #import "../../utils/analysis.typ": analyse_attribute_table, analyse_function_table
 #import "../../utils/todo.typ": TODO
+#import "../../utils/feedback.typ": feedback
 
 // Dieses Kapitel mit einem Label versehen, damit andere Kapitel darauf verweisen können.
 = Kapitelüberschrift <chap:kandidat1>
@@ -107,6 +108,19 @@ $ <eq:k1-ohm>
   ),
   caption: [Sensormodul – Attributreferenz],
 ) <tab:k1-attribute>
+
+=== Feedback-Dokumentation
+
+// feedback() für iteratives Nutzerfeedback und die zugehörige Antwort verwenden.
+#feedback(
+  feedback: [Das Dashboard lädt beim ersten Aufruf sehr langsam – über 5 Sekunden bis zur Anzeige der Messwerte.],
+  response: [Die Ladezeit wurde durch serverseitiges Caching der Aggregationsabfrage von 5,2 s auf 0,4 s reduziert. Ursache war eine fehlende Datenbankindizierung auf dem Timestamp-Feld.],
+)
+
+#feedback(
+  feedback: [Die Beschriftungen in der Diagrammansicht sind bei kleinen Bildschirmgrößen nicht lesbar.],
+  response: [Schriftgröße der Achsenbeschriftungen auf 11 pt erhöht und bei Viewportbreite unter 768 px automatisch auf Kurzbezeichnungen umgeschaltet.],
+)
 
 == Ergebnisse
 

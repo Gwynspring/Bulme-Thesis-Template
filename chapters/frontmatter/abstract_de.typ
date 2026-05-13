@@ -1,7 +1,11 @@
 #import "../../utils/todo.typ": TODO
 
-// Gliederung: Aufgabenstellung | Realisierung | Ergebnisse
-// Keine Ich-/Wir-Sätze; wissenschaftliche Ausdrucksweise.
+Die Kurzfassung soll die interessierte Öffentlichkeit in die Lage versetzen, die durch die Diplomarbeit erzielte Leistung, insbesondere die ingenieurmäßige Eigenleistung der Verfasser / innen und die damit nachgewiesenen Kompetenzen zu erkennen und einzuschätzen.
+Die Struktur mit den typischen Fragen ist als Leitlinie zu verstehen, die auf den Großteil der Diplomarbeiten angewendet werden kann.
+Wie die Diplomarbeit ist auch der Text der Kurzfassung in wissenschaftlicher Form darzustellen (keine »ICH / WIR-Sätze«).
+Die Kurzfassung (deutsch und englisch) ist in die Diplomarbeit einzubinden und auch elektronisch bereitzustellen.
+Um diesen Zweck zu erreichen, ist eine Dreigliederung der Kurzfassung in die Abschnitte »Aufgabenstellung«, »Realisierung« und »Ergebnisse« vorgesehen. Im Folgenden werden für jeden Abschnitt typische Fragen formuliert, auf die die Kurzfassung eine Antwort geben soll.
+Die Kurzfassung besteht somit aus  Aufgabenstellung, Realisierung und Ergebnis.
 
 #heading(level: 2, outlined: false)[Aufgabenstellung]
 
